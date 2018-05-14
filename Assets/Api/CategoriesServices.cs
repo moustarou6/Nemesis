@@ -27,7 +27,14 @@ public class CategoriesServices {
 
             if (json["status"].Value == "ok")
             {
-                Debug.Log(json);
+                AManager.instance.ListCategories = new List<VoCategories>();
+                foreach (JSONNode Result in json["result"])
+                {
+                    VoCategories VoCategories = new VoCategories();
+                    VoCategories.id = Result["categoryID"].AsInt;
+                    VoCategories.label = Result["categoryName"].ToString();
+                    AManager.instance.ListCategories.Add(VoCategories);
+                }
             }
             else
             {
