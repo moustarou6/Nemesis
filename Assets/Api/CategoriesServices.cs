@@ -61,42 +61,36 @@ public class CategoriesServices {
         WWW ws = new WWW(Proxy.HOST + URL_ITEM_BY_CATEGORY, form);
         yield return ws;
         
-        Debug.Log(ws.text);
         if (ws.error == null)
         {
             JSONNode json = JSONNode.Parse(ws.text);
             if (json["status"].Value == "ok")
             {
 
-                List<VoGroup> ListGroup = new List<VoGroup>();
+                
                 foreach (JSONNode group in json["result"])
                 {
 
                     VoGroup VoGroup = new VoGroup();
-
-
-
                     VoGroup.ListItem = new List<VoItem>();
-                    Debug.Log(json["result"]);
+                    VoGroup.label = group["groupName"].Value;
                     foreach (JSONNode item in group["item"])
                     {
-                        Debug.Log("ddd");
                         VoItem Item = new VoItem();
                         Item.id = item["typeID"].AsInt;
                         Item.label = item["typeName"].ToString();
-                        Item.url = Proxy.PathThumbItem + item["id"].ToString();
+                        Item.url = Proxy.PathThumbItem + item["typeID"].Value+"_64.png";
 
                         VoGroup.ListItem.Add(Item);
                       //  AManager.instance.ListVoItem.Add(Item);
                     }
 
-
-                    ListGroup.Add(VoGroup);
+                    AManager.instance.ListItem.Add(VoGroup);
 
                 }
                 
                 
-                successCallback(ListGroup);
+                successCallback(AManager.instance.ListItem);
             }
             else
             {

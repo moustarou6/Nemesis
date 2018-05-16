@@ -7,7 +7,7 @@ public class AManager : MonoBehaviour {
     private static 	AManager s_Instance = null;
  	
 	public List<VoCategories> ListCategories = new List<VoCategories>();
-    public List<VoItem> ListVoItem = new List<VoItem>();
+    public List<VoGroup> ListItem = new List<VoGroup>();
 
 
     // This defines a static instance property that attempts to find the manager object in the scene and
