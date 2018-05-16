@@ -22,14 +22,21 @@ public class CallWS : MonoBehaviour {
     }
 
 
-    
+    public ScrollManager ScrollManager;
+
     void DropdownValueChanged(Dropdown change)
     {
 
-       /* foreach (VoItem item in Group.ListItem)
-        {
-            StartCoroutine(setImage(item));
-        }*/
+        /* foreach (VoItem item in Group.ListItem)
+         {
+             StartCoroutine(setImage(item));
+         }*/
+
+        Debug.Log("New Value : " + AManager.instance.ListItem[change.value].label);
+        Debug.Log("New Value : " + AManager.instance.ListItem[change.value].ListItem.Count);
+
+
+        ScrollManager.GenerateScroll(AManager.instance.ListItem[change.value].ListItem);
         Debug.Log("New Value : " + AManager.instance.ListItem[change.value].label) ;
     }
 
@@ -55,22 +62,7 @@ public class CallWS : MonoBehaviour {
         
     }
 
-    IEnumerator setImage(VoItem item)
-    {
-        Debug.Log("setImage" + item.url);
-        WWW www = new WWW(item.url);
-        yield return www;
-
-        // calling this function with StartCoroutine solves the problem
-        Debug.Log("Why on earh is this never called?");
-        item.thumb = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
-
-        GameObject image = new GameObject();
-        image.AddComponent<Image>().sprite = item.thumb;
-        image.transform.parent = parent.transform;
-        image.transform.localScale = Vector3.one;
-
-    }
+   
 
     // Update is called once per frame
     void Update () {

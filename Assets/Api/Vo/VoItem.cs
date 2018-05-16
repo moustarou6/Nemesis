@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VoItem  {
+public class VoItem: VoMaster  {
 
-    public string label;
-    public int id;
+    public string label;    
     public string url;
     public Sprite thumb;
-
+    public int price;
 
 
 

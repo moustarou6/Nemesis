@@ -3,28 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class VoBind
-{
-    public string Key;
-    public GameObject Target;
-}
 
 public class DataBind : MonoBehaviour {
 
-    public List<VoBind> ListToBind = new List<VoBind>();
-   
-
-    public void SetData(VoItem list)
+    private int id = -1;
+    public Text PriceText;
+    public Text NameText;
+    public Image ImageComponent;
+    
+    public void SetData(VoItem _list)
     {
 
-        foreach (VoBind voBind in ListToBind)
-        {
-            //voBind.Target.GetComponent<Text>().text = list."label");
+        if (PriceText != null)
+            PriceText.text = _list.price.ToString();
 
+        if (NameText != null)
+            NameText.text = _list.label;
 
-        }
+        if (ImageComponent != null)
+            StartCoroutine(setImage(_list));
+            
         
+    }
+
+
+    IEnumerator setImage(VoItem item)
+    {
+
+        if (item.thumb == null)
+        {
+            WWW www = new WWW(item.url);
+            yield return www;
+            
+            item.thumb = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+        }
+        ImageComponent.sprite = item.thumb;
+
     }
 
 }
