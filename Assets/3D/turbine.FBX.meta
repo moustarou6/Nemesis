@@ -1,0 +1,297 @@
+fileFormatVersion: 2
+guid: 4bedc1c958037f140a19c7edfa1dbe27
+timeCreated: 1526589464
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ' '
+    100002: '  1'
+    100004: Brep With Voids
+    100006: Brep With Voids-DC_Shell
+    100008: Brep With Voids-DC_Shell 1
+    100010: Brep With Voids-DC_Shell 10
+    100012: Brep With Voids-DC_Shell 11
+    100014: Brep With Voids-DC_Shell 12
+    100016: Brep With Voids-DC_Shell 13
+    100018: Brep With Voids-DC_Shell 14
+    100020: Brep With Voids-DC_Shell 15
+    100022: Brep With Voids-DC_Shell 16
+    100024: Brep With Voids-DC_Shell 17
+    100026: Brep With Voids-DC_Shell 18
+    100028: Brep With Voids-DC_Shell 19
+    100030: Brep With Voids-DC_Shell 2
+    100032: Brep With Voids-DC_Shell 20
+    100034: Brep With Voids-DC_Shell 21
+    100036: Brep With Voids-DC_Shell 22
+    100038: Brep With Voids-DC_Shell 23
+    100040: Brep With Voids-DC_Shell 24
+    100042: Brep With Voids-DC_Shell 25
+    100044: Brep With Voids-DC_Shell 26
+    100046: Brep With Voids-DC_Shell 27
+    100048: Brep With Voids-DC_Shell 28
+    100050: Brep With Voids-DC_Shell 29
+    100052: Brep With Voids-DC_Shell 3
+    100054: Brep With Voids-DC_Shell 30
+    100056: Brep With Voids-DC_Shell 31
+    100058: Brep With Voids-DC_Shell 32
+    100060: Brep With Voids-DC_Shell 33
+    100062: Brep With Voids-DC_Shell 34
+    100064: Brep With Voids-DC_Shell 35
+    100066: Brep With Voids-DC_Shell 36
+    100068: Brep With Voids-DC_Shell 37
+    100070: Brep With Voids-DC_Shell 38
+    100072: Brep With Voids-DC_Shell 3_MeshPart0
+    100074: Brep With Voids-DC_Shell 3_MeshPart1
+    100076: Brep With Voids-DC_Shell 3_MeshPart2
+    100078: Brep With Voids-DC_Shell 4
+    100080: Brep With Voids-DC_Shell 5
+    100082: Brep With Voids-DC_Shell 6
+    100084: Brep With Voids-DC_Shell 7
+    100086: Brep With Voids-DC_Shell 8
+    100088: Brep With Voids-DC_Shell 9
+    100090: NONE
+    100092: Part4 1
+    100094: //RootNode
+    400000: ' '
+    400002: '  1'
+    400004: Brep With Voids
+    400006: Brep With Voids-DC_Shell
+    400008: Brep With Voids-DC_Shell 1
+    400010: Brep With Voids-DC_Shell 10
+    400012: Brep With Voids-DC_Shell 11
+    400014: Brep With Voids-DC_Shell 12
+    400016: Brep With Voids-DC_Shell 13
+    400018: Brep With Voids-DC_Shell 14
+    400020: Brep With Voids-DC_Shell 15
+    400022: Brep With Voids-DC_Shell 16
+    400024: Brep With Voids-DC_Shell 17
+    400026: Brep With Voids-DC_Shell 18
+    400028: Brep With Voids-DC_Shell 19
+    400030: Brep With Voids-DC_Shell 2
+    400032: Brep With Voids-DC_Shell 20
+    400034: Brep With Voids-DC_Shell 21
+    400036: Brep With Voids-DC_Shell 22
+    400038: Brep With Voids-DC_Shell 23
+    400040: Brep With Voids-DC_Shell 24
+    400042: Brep With Voids-DC_Shell 25
+    400044: Brep With Voids-DC_Shell 26
+    400046: Brep With Voids-DC_Shell 27
+    400048: Brep With Voids-DC_Shell 28
+    400050: Brep With Voids-DC_Shell 29
+    400052: Brep With Voids-DC_Shell 3
+    400054: Brep With Voids-DC_Shell 30
+    400056: Brep With Voids-DC_Shell 31
+    400058: Brep With Voids-DC_Shell 32
+    400060: Brep With Voids-DC_Shell 33
+    400062: Brep With Voids-DC_Shell 34
+    400064: Brep With Voids-DC_Shell 35
+    400066: Brep With Voids-DC_Shell 36
+    400068: Brep With Voids-DC_Shell 37
+    400070: Brep With Voids-DC_Shell 38
+    400072: Brep With Voids-DC_Shell 3_MeshPart0
+    400074: Brep With Voids-DC_Shell 3_MeshPart1
+    400076: Brep With Voids-DC_Shell 3_MeshPart2
+    400078: Brep With Voids-DC_Shell 4
+    400080: Brep With Voids-DC_Shell 5
+    400082: Brep With Voids-DC_Shell 6
+    400084: Brep With Voids-DC_Shell 7
+    400086: Brep With Voids-DC_Shell 8
+    400088: Brep With Voids-DC_Shell 9
+    400090: NONE
+    400092: Part4 1
+    400094: //RootNode
+    2300000: Brep With Voids-DC_Shell
+    2300002: Brep With Voids-DC_Shell 1
+    2300004: Brep With Voids-DC_Shell 10
+    2300006: Brep With Voids-DC_Shell 11
+    2300008: Brep With Voids-DC_Shell 12
+    2300010: Brep With Voids-DC_Shell 13
+    2300012: Brep With Voids-DC_Shell 14
+    2300014: Brep With Voids-DC_Shell 15
+    2300016: Brep With Voids-DC_Shell 16
+    2300018: Brep With Voids-DC_Shell 17
+    2300020: Brep With Voids-DC_Shell 18
+    2300022: Brep With Voids-DC_Shell 19
+    2300024: Brep With Voids-DC_Shell 2
+    2300026: Brep With Voids-DC_Shell 20
+    2300028: Brep With Voids-DC_Shell 21
+    2300030: Brep With Voids-DC_Shell 22
+    2300032: Brep With Voids-DC_Shell 23
+    2300034: Brep With Voids-DC_Shell 24
+    2300036: Brep With Voids-DC_Shell 25
+    2300038: Brep With Voids-DC_Shell 26
+    2300040: Brep With Voids-DC_Shell 27
+    2300042: Brep With Voids-DC_Shell 28
+    2300044: Brep With Voids-DC_Shell 29
+    2300046: Brep With Voids-DC_Shell 30
+    2300048: Brep With Voids-DC_Shell 31
+    2300050: Brep With Voids-DC_Shell 32
+    2300052: Brep With Voids-DC_Shell 33
+    2300054: Brep With Voids-DC_Shell 34
+    2300056: Brep With Voids-DC_Shell 35
+    2300058: Brep With Voids-DC_Shell 36
+    2300060: Brep With Voids-DC_Shell 37
+    2300062: Brep With Voids-DC_Shell 38
+    2300064: Brep With Voids-DC_Shell 3_MeshPart0
+    2300066: Brep With Voids-DC_Shell 3_MeshPart1
+    2300068: Brep With Voids-DC_Shell 3_MeshPart2
+    2300070: Brep With Voids-DC_Shell 4
+    2300072: Brep With Voids-DC_Shell 5
+    2300074: Brep With Voids-DC_Shell 6
+    2300076: Brep With Voids-DC_Shell 7
+    2300078: Brep With Voids-DC_Shell 8
+    2300080: Brep With Voids-DC_Shell 9
+    3300000: Brep With Voids-DC_Shell
+    3300002: Brep With Voids-DC_Shell 1
+    3300004: Brep With Voids-DC_Shell 10
+    3300006: Brep With Voids-DC_Shell 11
+    3300008: Brep With Voids-DC_Shell 12
+    3300010: Brep With Voids-DC_Shell 13
+    3300012: Brep With Voids-DC_Shell 14
+    3300014: Brep With Voids-DC_Shell 15
+    3300016: Brep With Voids-DC_Shell 16
+    3300018: Brep With Voids-DC_Shell 17
+    3300020: Brep With Voids-DC_Shell 18
+    3300022: Brep With Voids-DC_Shell 19
+    3300024: Brep With Voids-DC_Shell 2
+    3300026: Brep With Voids-DC_Shell 20
+    3300028: Brep With Voids-DC_Shell 21
+    3300030: Brep With Voids-DC_Shell 22
+    3300032: Brep With Voids-DC_Shell 23
+    3300034: Brep With Voids-DC_Shell 24
+    3300036: Brep With Voids-DC_Shell 25
+    3300038: Brep With Voids-DC_Shell 26
+    3300040: Brep With Voids-DC_Shell 27
+    3300042: Brep With Voids-DC_Shell 28
+    3300044: Brep With Voids-DC_Shell 29
+    3300046: Brep With Voids-DC_Shell 30
+    3300048: Brep With Voids-DC_Shell 31
+    3300050: Brep With Voids-DC_Shell 32
+    3300052: Brep With Voids-DC_Shell 33
+    3300054: Brep With Voids-DC_Shell 34
+    3300056: Brep With Voids-DC_Shell 35
+    3300058: Brep With Voids-DC_Shell 36
+    3300060: Brep With Voids-DC_Shell 37
+    3300062: Brep With Voids-DC_Shell 38
+    3300064: Brep With Voids-DC_Shell 3_MeshPart0
+    3300066: Brep With Voids-DC_Shell 3_MeshPart1
+    3300068: Brep With Voids-DC_Shell 3_MeshPart2
+    3300070: Brep With Voids-DC_Shell 4
+    3300072: Brep With Voids-DC_Shell 5
+    3300074: Brep With Voids-DC_Shell 6
+    3300076: Brep With Voids-DC_Shell 7
+    3300078: Brep With Voids-DC_Shell 8
+    3300080: Brep With Voids-DC_Shell 9
+    4300000: Brep With Voids-DC_Shell_MeshPart0
+    4300002: Brep With Voids-DC_Shell_MeshPart1
+    4300004: Brep With Voids-DC_Shell_MeshPart2
+    4300006: Brep With Voids-DC_Shell
+    4300008: Brep With Voids-DC_Shell
+    4300010: Brep With Voids-DC_Shell
+    4300012: Brep With Voids-DC_Shell
+    4300014: Brep With Voids-DC_Shell
+    4300016: Brep With Voids-DC_Shell
+    4300018: Brep With Voids-DC_Shell
+    4300020: Brep With Voids-DC_Shell
+    4300022: Brep With Voids-DC_Shell
+    4300024: Brep With Voids-DC_Shell
+    4300026: Brep With Voids-DC_Shell
+    4300028: Brep With Voids-DC_Shell
+    4300030: Brep With Voids-DC_Shell
+    4300032: Brep With Voids-DC_Shell
+    4300034: Brep With Voids-DC_Shell
+    4300036: Brep With Voids-DC_Shell
+    4300038: Brep With Voids-DC_Shell
+    4300040: Brep With Voids-DC_Shell
+    4300042: Brep With Voids-DC_Shell
+    4300044: Brep With Voids-DC_Shell
+    4300046: Brep With Voids-DC_Shell
+    4300048: Brep With Voids-DC_Shell
+    4300050: Brep With Voids-DC_Shell
+    4300052: Brep With Voids-DC_Shell
+    4300054: Brep With Voids-DC_Shell
+    4300056: Brep With Voids-DC_Shell
+    4300058: Brep With Voids-DC_Shell
+    4300060: Brep With Voids-DC_Shell
+    4300062: Brep With Voids-DC_Shell
+    4300064: Brep With Voids-DC_Shell
+    4300066: Brep With Voids-DC_Shell
+    4300068: Brep With Voids-DC_Shell
+    4300070: Brep With Voids-DC_Shell
+    4300072: Brep With Voids-DC_Shell
+    4300074: Brep With Voids-DC_Shell
+    4300076: Brep With Voids-DC_Shell
+    4300078: Brep With Voids-DC_Shell
+    4300080: Brep With Voids-DC_Shell
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
