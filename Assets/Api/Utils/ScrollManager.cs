@@ -1,19 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ScrollManager : MonoBehaviour {
 
     public GameObject Template;
-
-
+    public DataBind data;
+    private List<VoItem> _currentList;
     public void GenerateScroll(List<VoItem> Objectist)
     {
+        _currentList = Objectist;
         Clear();
-        foreach (VoItem item in Objectist)
+        for (int i = 0; i< Objectist.Count; i++)
         {
+            int j = new int();
+            j = i;
             GameObject Clone = Instantiate(Template,Template.transform.parent);
-            Clone.GetComponent<DataBind>().SetData(item);
+            Clone.SetActive(true);
+            Clone.GetComponent<Button>().onClick.AddListener(() => SelectedItem(j));
+            Clone.GetComponent<DataBind>().SetData(Objectist[i]);
         }
     }
 
@@ -37,10 +44,17 @@ public class ScrollManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+        
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void SelectedItem(int i ) // 3
+    {     
+        data.SetData(_currentList[i]);
+    }
 }

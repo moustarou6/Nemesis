@@ -9,6 +9,7 @@ public class VoItem: VoMaster  {
     public string url;
     public Sprite thumb;
     public int price;
+    public string description;
 
 
 

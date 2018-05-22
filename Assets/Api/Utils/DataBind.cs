@@ -9,6 +9,7 @@ public class DataBind : MonoBehaviour {
     private int id = -1;
     public Text PriceText;
     public Text NameText;
+    public Text DescriptionText;
     public Image ImageComponent;
     
     public void SetData(VoItem _list)
@@ -19,6 +20,10 @@ public class DataBind : MonoBehaviour {
 
         if (NameText != null)
             NameText.text = _list.label;
+
+        if (DescriptionText != null)
+            DescriptionText.text = _list.description;
+        
 
         if (ImageComponent != null)
             StartCoroutine(setImage(_list));

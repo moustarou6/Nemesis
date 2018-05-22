@@ -78,7 +78,8 @@ public class CategoriesServices {
                     {
                         VoItem Item = new VoItem();
                         Item.id = item["typeID"].AsInt;
-                        Item.label = item["typeName"].ToString();
+                        Item.label = item["typeName"].ToString();               
+                        Item.description = item["description"].ToString();
                         Item.url = Proxy.PathThumbItem + item["typeID"].Value+"_64.png";
 
                         VoGroup.ListItem.Add(Item);
