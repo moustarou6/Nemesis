@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class CallWS : MonoBehaviour {
 
 
-    public ShipMarket ShipMarket;
+    
     
 	// Use this for initialization
 	void Start () {
 
-        ShipMarket.Initialisation();
+        MenuFlow.Instance.ChangeState(MenuFlow.GameState.STATE_Market);
 
 
     }
