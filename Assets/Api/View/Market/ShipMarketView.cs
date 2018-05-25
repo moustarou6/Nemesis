@@ -7,7 +7,7 @@ public class ShipMarketView : ViewManager {
 
     public Dropdown Drop;
     public ScrollManager ScrollManager;
-
+    public TreeViewControl TreeView;
    // public ScrollRect ScrollRect;
 
 
@@ -31,6 +31,50 @@ public class ShipMarketView : ViewManager {
 
     void OnSucess(List<VoGroup> ListItem)
     {
+
+
+
+         List<TreeViewData> datas = new List<TreeViewData>();
+         TreeViewData data = new TreeViewData();
+         data.Name = "Magasin";
+         data.ParentID = -1;
+         datas.Add(data);
+
+
+         for ( int i =0; i <ListItem.Count; i++)
+         {
+             data = new TreeViewData();
+             data.Name = ListItem[i].label;             
+             data.ParentID = 0;
+             datas.Add(data);
+         }
+
+        for (int i = 0; i < ListItem.Count; i++)
+        {
+            foreach (VoItem item in ListItem[i].ListItem)
+            {                
+                data = new TreeViewData();
+                data.Name = item.label;
+                data.ParentID = i+1;
+                datas.Add(data);
+            }
+        }
+
+
+        TreeView.Data = datas;
+
+
+        TreeView.GenerateTreeView();
+        //刷新树形菜单  
+        TreeView.RefreshTreeView();
+
+
+
+        TreeView.ClickItemEvent += CallBack;
+
+
+
+
         Drop.ClearOptions();
         List<string> ListDrop = new List<string>();
         foreach (VoGroup Group in ListItem)
@@ -50,6 +94,13 @@ public class ShipMarketView : ViewManager {
 
         ScrollManager.GenerateScroll(AManager.instance.ListItem[0].ListItem);
 
+    }
+
+    
+  
+    void CallBack(GameObject item)
+    {
+        Debug.Log(item.name);
     }
 
 

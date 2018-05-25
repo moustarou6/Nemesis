@@ -75,6 +75,9 @@ public class CategoriesServices {
                     VoGroup VoGroup = new VoGroup();
                     VoGroup.ListItem = new List<VoItem>();
                     VoGroup.label = group["groupName"].Value;
+
+                    Debug.Log(group["groupID"]);
+                    VoGroup.id = group["groupID"].AsInt;
                     foreach (JSONNode item in group["item"])
                     {
                         VoItem Item = new VoItem();
