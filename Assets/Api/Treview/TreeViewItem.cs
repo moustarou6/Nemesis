@@ -24,12 +24,14 @@ public class TreeViewItem : MonoBehaviour
     //正在进行刷新
     private bool _isRefreshing = false;
 
+    private TreeViewData _data;
+
     void Awake()
     {
         //上下文按钮点击回调
         transform.Find("ContextButton").GetComponent<Button>().onClick.AddListener(ContextButtonClick);
         transform.Find("TreeViewButton").GetComponent<Button>().onClick.AddListener(delegate () {
-            Controler.ClickItem(gameObject);
+            Controler.ClickItem(_data);
         });
     }
     /// <summary>
@@ -94,6 +96,11 @@ public class TreeViewItem : MonoBehaviour
     public void SetParent(TreeViewItem parent)
     {
         _parent = parent;
+    }
+
+    public void SetData(TreeViewData data)
+    {
+        _data = data;
     }
     public void AddChildren(TreeViewItem children)
     {

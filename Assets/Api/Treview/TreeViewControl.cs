@@ -38,7 +38,7 @@ public class TreeViewControl : MonoBehaviour
     /// <summary>
     /// 所有子元素的鼠标点击回调事件
     /// </summary>
-    public delegate void ClickItemdelegate(GameObject item);
+    public delegate void ClickItemdelegate(TreeViewData data);
     public event ClickItemdelegate ClickItemEvent;
 
     //当前树形菜单中的所有元素
@@ -59,11 +59,11 @@ public class TreeViewControl : MonoBehaviour
     /// <summary>
     /// 鼠标点击子元素事件
     /// </summary>
-    public void ClickItem(GameObject item)
+    public void ClickItem(TreeViewData data)
     {
-        ClickItemEvent(item);
+        ClickItemEvent(data);
     }
-    void ClickItemTemplate(GameObject item)
+    void ClickItemTemplate(TreeViewData data)
     {
         //空的事件，不这样做的话ClickItemEvent会引发空引用异常
     }
@@ -130,6 +130,7 @@ public class TreeViewControl : MonoBehaviour
                 TreeViewItem tvi = _treeViewItems[Data[i].ParentID].GetComponent<TreeViewItem>();
                 item.GetComponent<TreeViewItem>().SetHierarchy(tvi.GetHierarchy() + 1);
                 item.GetComponent<TreeViewItem>().SetParent(tvi);
+                item.GetComponent<TreeViewItem>().SetData(Data[i]);
                 tvi.AddChildren(item.GetComponent<TreeViewItem>());
             }
 

@@ -11,4 +11,6 @@ public class TreeViewData
     /// 数据所属的父ID
     /// </summary>
     public int ParentID;
+
+    public VoItem item;
 }

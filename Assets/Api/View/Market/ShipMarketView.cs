@@ -56,6 +56,7 @@ public class ShipMarketView : ViewManager {
                 data = new TreeViewData();
                 data.Name = item.label;
                 data.ParentID = i+1;
+                data.item = item;
                 datas.Add(data);
             }
         }
@@ -98,9 +99,16 @@ public class ShipMarketView : ViewManager {
 
     
   
-    void CallBack(GameObject item)
+    void CallBack(TreeViewData data)
     {
-        Debug.Log(item.name);
+        if(data.item != null)
+        {
+
+            Debug.Log(data.item.id);
+            Debug.Log(data.item.label);
+
+        }
+       
     }
 
 
