@@ -11,10 +11,12 @@ public class DataBind : MonoBehaviour {
     public Text NameText;
     public Text DescriptionText;
     public Image ImageComponent;
-    
+
+    private VoItem VoItem;
+
     public void SetData(VoItem _list)
     {
-
+        VoItem = _list;
         if (PriceText != null)
             PriceText.text = _list.price.ToString();
 
@@ -29,6 +31,11 @@ public class DataBind : MonoBehaviour {
             StartCoroutine(setImage(_list));
             
         
+    }
+
+    public VoItem GetData()
+    {
+        return VoItem;
     }
 
 

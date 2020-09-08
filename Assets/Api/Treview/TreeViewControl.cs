@@ -136,6 +136,9 @@ public class TreeViewControl : MonoBehaviour
 
             item.transform.name = "TreeViewItem";
             item.transform.Find("TreeViewText").GetComponent<Text>().text = Data[i].Name;
+            
+           
+
             item.transform.SetParent(TreeItems);
             item.transform.localPosition = Vector3.zero;
             item.transform.localScale = Vector3.one;

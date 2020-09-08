@@ -2,63 +2,98 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using System.Collections.Generic;
+using ProgressBar;
+using UnityEngine.SceneManagement;
+
 public class Login : MonoBehaviour {
 
     [Header("Formulaire Login")]
     public Text LoginField;
     public Text PasswordField;
+    public Button LoginButton;
+    public ProgressBarBehaviour ProgressBar;
+    //private string login;
+    //private string pass;
 
-	//private string login;
-	//private string pass;
-	
-	//private string password 	 	="mika123";
-	//private string loginField     	="mika";
-	//private bool loginMod	 		= true;
-	//private string email			= "email";
-	//private bool loginIsFailed		= false;
-	//public string serveur 			= "http://localhost/backoffice/ws/index.php/";
+    //private string password 	 	="mika123";
+    //private string loginField     	="mika";
+    //private bool loginMod	 		= true;
+    //private string email			= "email";
+    //private bool loginIsFailed		= false;
+    //public string serveur 			= "http://localhost/backoffice/ws/index.php/";
 
-	//public Camera cameLoading;
+    //public Camera cameLoading;
     //public Animator loadingAnimator;
-	//private string jsonResult;
+    //private string jsonResult;
 
-   // Use this for initialization
+    // Use this for initialization
 
-	void Awake()
+    bool loginAutorized     = false;
+    bool PictureAutorized   = false;
+
+
+    void Awake()
 	{
-		//AManager.instance.host = serveur;     
-	}
-
-    public void Start()
-    {
-       
+        LoginButton.enabled = false;
+        //WebServices.GetItemByCategory(7,OnSucess);
+        //AManager.instance.host = serveur;     
     }
 
-	
 
-	public void Valid()
+
+
+    void Start()
+    {
+        //Loading 
+        int[] list = new int[2];
+        list[0] = 6;
+        list[1] = 7;
+        WebServices.LoadMarketById(list, OnUpdate, OnSucess);
+    }
+
+
+
+    void OnUpdate(float percent)
+    {
+        ProgressBar.SetFillerSizeAsPercentage(percent*100.0f);
+    }
+
+    void OnSucess()
+    {
+        PictureAutorized = true;
+        LoginButton.enabled = true;
+        Debug.Log("Fin");
+    }
+
+    public void Valid()
 	{
         Debug.Log("Valid");
         WebServices.Login(LoginField.text, PasswordField.text, OnSuccess);
 	}
 
-    private void OnSuccess(VoUser voUser)
+    private void OnSuccess()
     {
-        Debug.Log("send vo : " + voUser.id);
-        Debug.Log("intance : " + AManager.instance.user.id);
+        loginAutorized = true;
+       
+
+
+       
+        Debug.Log("intance : " + AManager.Instance.user.id);
+        StartCoroutine(Wait());
     }
 
 
-	private void LoadNewScene() {  Application.LoadLevel("Menu"); }
 
-	/*private SimpleJSON.JSONNode parseJson(string str)
+
+    /*private SimpleJSON.JSONNode parseJson(string str)
 	{
 		Debug.Log("Response : " + str);
 		SimpleJSON.JSONNode N = SimpleJSON.JSON.Parse(str);
 		return N;
 	}*/
-	
-	/*private IEnumerator addUser(string __login,string __pass,string __email)
+
+    /*private IEnumerator addUser(string __login,string __pass,string __email)
 	{
 		Debug.Log("Web Service Call : " + serveur + "user/add");
 		
@@ -71,9 +106,22 @@ public class Login : MonoBehaviour {
 		yield return jsonWww;
 		parseJson(jsonWww.text);
 	}*/
-	
-	void Update () {
-		
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("main");
+    }
+
+
+    void Update () {
+
+
+        if (PictureAutorized && loginAutorized)
+        {
+          
+        }
+
 	}
 	
 	/*private IEnumerator loadListSpaceShip(){

@@ -16,6 +16,7 @@ public class MenuFlow : MonoBehaviour {
  	public enum GameState
 	{
 		STATE_None = -1,
+        STATE_Home,
 		STATE_View,
         STATE_Market
 	};
@@ -23,13 +24,19 @@ public class MenuFlow : MonoBehaviour {
 	
 	public void Start() {
 		CurrentStateValue = GameState.STATE_None;
-        ChangeState(GameState.STATE_None);
-	}
+
+        Debug.Log("Manager : " + AManager.Instance.ListCategories.Count);
+      
+
+
+
+    }
 	
 	
 	
 	public void ChangeState(GameState newState)
 	{
+       
         Debug.Log("BroadcastMessage : " + newState + "--" + CurrentStateValue);
 		if (newState != CurrentStateValue)
 		{

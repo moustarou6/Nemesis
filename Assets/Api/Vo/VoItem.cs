@@ -10,7 +10,7 @@ public class VoItem: VoMaster  {
     public Sprite thumb;
     public int price;
     public string description;
-
+    public VoGroup group;
 
 
 }

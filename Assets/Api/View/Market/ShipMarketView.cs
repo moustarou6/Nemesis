@@ -5,21 +5,48 @@ using UnityEngine.UI;
 
 public class ShipMarketView : ViewManager {
 
-    public Dropdown Drop;
-    public ScrollManager ScrollManager;
+    //public Dropdown Drop;
+
+
+    //public ScrollManager ScrollManager;
     public TreeViewControl TreeView;
-   // public ScrollRect ScrollRect;
+    public DataBind DetailsView;
+
+    public Transform Spawn;
 
 
     public override void StartInterface()
     {
-        WebServices.GetItemByCategory(6, OnSucess);
 
-        Drop.onValueChanged.AddListener(delegate {
-            DropdownValueChanged(Drop);
-        });
 
-       // ScrollRect.onValueChanged.AddListener(ScrollManagerValueChanged);
+        /* Debug.Log(AManager.Instance.user.id);
+         Debug.Log(AManager.Instance.user.spaceship.id);
+         Instantiate(Resources.Load(AManager.Instance.user.spaceship.url),Vector3.zero, Quaternion.Euler(0.0f,0.0f,0.0f) ,Spawn);
+         Spawn.transform.localScale = new Vector3(Spawn.transform.localScale.x*6.0f, Spawn.transform.localScale.y * 6.0f, Spawn.transform.localScale.z * 6.0f); 
+         */
+        //Resources.Load("Prefabs/");
+        int[] id = new int[1];
+        id[0] = 7;
+        WebServices.LoadMarketById(id, null, OnSucess);
+        //LoadingTreeView(AManager.Instance.GetModuleCategories().ListGroup);
+       
+        
+        
+        
+        /* Drop.onValueChanged.AddListener(delegate {
+             DropdownValueChanged(Drop);
+         });*/
+
+        // ScrollRect.onValueChanged.AddListener(ScrollManagerValueChanged);
+
+
+
+    }
+
+    public void OnSucess()
+    {
+        Debug.Log(AManager.Instance.GetModuleCategories().ListGroup.Count);
+        LoadingTreeView(AManager.Instance.GetModuleCategories().ListGroup);
     }
 
     public override void ExitInterface()
@@ -29,12 +56,12 @@ public class ShipMarketView : ViewManager {
 
 
 
-    void OnSucess(List<VoGroup> ListItem)
+    void LoadingTreeView(List<VoGroup> ListItem)
     {
 
+        Debug.Log("LoadingTreeView : " + ListItem.Count);
 
-
-         List<TreeViewData> datas = new List<TreeViewData>();
+        List<TreeViewData> datas = new List<TreeViewData>();
          TreeViewData data = new TreeViewData();
          data.Name = "Magasin";
          data.ParentID = -1;
@@ -76,7 +103,7 @@ public class ShipMarketView : ViewManager {
 
 
 
-        Drop.ClearOptions();
+  //      Drop.ClearOptions();
         List<string> ListDrop = new List<string>();
         foreach (VoGroup Group in ListItem)
         {
@@ -91,47 +118,55 @@ public class ShipMarketView : ViewManager {
 
         }
 
-        Drop.AddOptions(ListDrop);
+   //     Drop.AddOptions(ListDrop);
 
-        ScrollManager.GenerateScroll(AManager.instance.ListItem[0].ListItem);
+  //      ScrollManager.GenerateScroll(AManager.instance.ListItem[0].ListItem);
 
     }
 
     
   
     void CallBack(TreeViewData data)
-    {
-        if(data.item != null)
+    {       
+        if (data != null && data.item != null)
         {
-
             Debug.Log(data.item.id);
             Debug.Log(data.item.label);
-
+            DetailsView.SetData(data.item);
         }
+        
        
     }
 
 
-    void DropdownValueChanged(Dropdown change)
+   /* void DropdownValueChanged(Dropdown change)
     {
         ScrollManager.GenerateScroll(AManager.instance.ListItem[change.value].ListItem);
         Debug.Log("New Value : " + AManager.instance.ListItem[change.value].label);
-    }
+    }*/
 
 
     #region function called by button
 
     public void LoadShipItems()
     {
-        WebServices.GetItemByCategory(6, OnSucess);
+
+        LoadingTreeView(AManager.Instance.GetShipCategories().ListGroup);
+        //WebServices.GetItemByCategory(6, OnSucess);
     }
 
     public void LoadModulesItems()
     {
-        WebServices.GetItemByCategory(7, OnSucess);
+        LoadingTreeView(AManager.Instance.GetModuleCategories().ListGroup);
+        //WebServices.GetItemByCategory(7, OnSucess);
     }
+    
 
-
+    public void Buy()
+    {
+        Debug.Log(DetailsView.GetData().id);
+        WebServices.BuyItem(DetailsView.GetData().id);
+    }
     #endregion
 
 

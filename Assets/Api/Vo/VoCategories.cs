@@ -6,6 +6,6 @@ public class VoCategories  {
 
     public int id;
     public string label;
-
+    public List<VoGroup> ListGroup;
 
 }

@@ -11,12 +11,12 @@ public class CallWS : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        MenuFlow.Instance.ChangeState(MenuFlow.GameState.STATE_Market);
-
-      
+        MenuFlow.Instance.ChangeState(MenuFlow.GameState.STATE_View);
 
 
-       
+
+       // WebServices.Login("mika", "mika123");
+
     }
 
 

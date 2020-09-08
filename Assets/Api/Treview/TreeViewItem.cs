@@ -39,6 +39,7 @@ public class TreeViewItem : MonoBehaviour
     /// </summary>
     void ContextButtonClick()
     {
+        Debug.Log("ContextButtonClick");
         //上一轮刷新还未结束
         if (_isRefreshing)
         {
@@ -46,6 +47,8 @@ public class TreeViewItem : MonoBehaviour
         }
 
         _isRefreshing = true;
+
+        Debug.Log(IsExpanding);
 
         if (IsExpanding)
         {
@@ -101,6 +104,14 @@ public class TreeViewItem : MonoBehaviour
     public void SetData(TreeViewData data)
     {
         _data = data;
+
+        if (_data.item != null)
+        {
+                gameObject.transform.Find("ContextButton").GetComponent<Image>().sprite = _data.item.thumb;
+         
+        }
+            
+
     }
     public void AddChildren(TreeViewItem children)
     {

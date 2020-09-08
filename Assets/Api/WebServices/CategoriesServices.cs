@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON;
+using System.IO;
 
 public class CategoriesServices {
 
@@ -28,13 +29,13 @@ public class CategoriesServices {
 
             if (json["status"].Value == "ok")
             {
-                AManager.instance.ListCategories = new List<VoCategories>();
+                AManager.Instance.ListCategories = new List<VoCategories>();
                 foreach (JSONNode Result in json["result"])
                 {
                     VoCategories VoCategories = new VoCategories();
                     VoCategories.id = Result["categoryID"].AsInt;
                     VoCategories.label = Result["categoryName"].ToString();
-                    AManager.instance.ListCategories.Add(VoCategories);
+                    AManager.Instance.ListCategories.Add(VoCategories);
                 }
             }
             else
@@ -52,11 +53,26 @@ public class CategoriesServices {
        
     }
 
-    public static IEnumerator GetItemByCategory(int categoryID, Action<List<VoGroup>> successCallback = null, Action<string> errorCallback = null)
+    public static IEnumerator LoadMarketById(int[] categoryArray, Action<float> UpdateCallback = null , Action successCallback = null, Action<string> errorCallback = null)
     {
-        Debug.Log("GetList");
+        //Debug.Log("GetList n=by " + categoryID);
+        string jsonInt = "";
+        for (int i = 0; i < categoryArray.Length; i++)
+        {
+            if (i == 0)
+            {
+                jsonInt += categoryArray[i];
+            }
+            else
+                jsonInt += "," + categoryArray[i];
+
+        }
+
+        Debug.Log(jsonInt);
+
+      
         WWWForm form = new WWWForm();
-        form.AddField("categoryID",categoryID);
+        form.AddField("categoryID", jsonInt);
       
         WWW ws = new WWW(Proxy.HOST + URL_ITEM_BY_CATEGORY, form);
         yield return ws;
@@ -64,38 +80,92 @@ public class CategoriesServices {
         if (ws.error == null)
         {
             JSONNode json = JSONNode.Parse(ws.text);
+            Debug.Log("GetList : " + ws.text);
             if (json["status"].Value == "ok")
             {
-                AManager.instance.ListItem.Clear();
+                
+                AManager.Instance.ListItem.Clear();
+                float count = json["count"].AsFloat;
+                float indexProcessed = 0;
 
-
-                foreach (JSONNode group in json["result"])
+                foreach (JSONNode cat in json["result"])
                 {
 
-                    VoGroup VoGroup = new VoGroup();
-                    VoGroup.ListItem = new List<VoItem>();
-                    VoGroup.label = group["groupName"].Value;
+                    VoCategories Cat = new VoCategories();
+                    Cat.label = cat["name"].Value;
+                    Cat.id = cat["id"].AsInt;
+                    Cat.ListGroup = new List<VoGroup>();
 
-                    Debug.Log(group["groupID"]);
-                    VoGroup.id = group["groupID"].AsInt;
-                    foreach (JSONNode item in group["item"])
+                    foreach (JSONNode group in cat["result"])
                     {
-                        VoItem Item = new VoItem();
-                        Item.id = item["typeID"].AsInt;
-                        Item.label = item["typeName"].ToString();               
-                        Item.description = item["description"].ToString();
-                        Item.url = Proxy.PathThumbItem + item["typeID"].Value+"_64.png";
+                        VoGroup VoGroup = new VoGroup();
+                        VoGroup.ListItem = new List<VoItem>();
+                        VoGroup.label = group["groupName"].Value;
 
-                        VoGroup.ListItem.Add(Item);
-                      //  AManager.instance.ListVoItem.Add(Item);
+                     
+                        VoGroup.id = group["groupID"].AsInt;
+                        foreach (JSONNode item in group["item"])
+                        {
+
+                            VoItem Item = new VoItem();
+                            Item.id = item["typeID"].AsInt;
+                            Item.label = item["typeName"].ToString();
+                            Item.description = item["description"].ToString();
+                            Item.url = Proxy.PathThumbItem + item["typeID"].Value + "_64.png";
+                            Item.group = VoGroup;
+                            Texture2D tex = Resources.Load<Texture2D>("imageEveonline/Type/" + item["typeID"].Value + "_64");
+                           
+                            Item.thumb = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
+
+                            if (Item.thumb != null)
+                            {
+                             
+                            }
+                            else if (File.Exists(Application.dataPath + "/../image.eveonline.com/Type/" + item["typeID"].Value + "_64.png"))
+                            {
+                                //Texture2D tex;
+                                tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
+
+                                WWW www = new WWW("file://" + Application.dataPath + "/../image.eveonline.com/Type/" + item["typeID"].Value + "_64.png");
+                                yield return www;
+
+                                Debug.Log(Application.dataPath + "/../image.eveonline.com/Type/" + item["typeID"].Value + "_64.png");
+
+                                www.LoadImageIntoTexture(tex);
+                                Item.thumb = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
+                            }
+                            else
+                            {
+
+                            
+                               WWWForm formdl = new WWWForm();
+                                formdl.AddField("url", Item.url);
+
+                                WWW wsdl = new WWW("http://54.38.186.186/save.php", formdl);
+                                yield return wsdl;
+                            }
+
+                            
+                            indexProcessed++;
+
+                            if(UpdateCallback != null)
+                                UpdateCallback(indexProcessed / count );
+
+                            VoGroup.ListItem.Add(Item);
+                        }
+
+                        Cat.ListGroup.Add(VoGroup);
+
+                      //  Cat.group = VoGroup;
+
                     }
 
-                    AManager.instance.ListItem.Add(VoGroup);
+                    AManager.Instance.ListCategories.Add(Cat);
 
                 }
                 
                 
-                successCallback(AManager.instance.ListItem);
+                successCallback();
             }
             else
             {
@@ -108,7 +178,13 @@ public class CategoriesServices {
             if (errorCallback != null)
                 errorCallback(ws.error);
         }
+
+    
     }
 
-   
+
+
+
+
+
 }
